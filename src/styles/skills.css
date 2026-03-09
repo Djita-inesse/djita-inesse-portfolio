@@ -1,0 +1,162 @@
+.skills{
+padding:100px 80px;
+background:linear-gradient(180deg,#0a0f1c,#030b1a);
+color:white;
+}
+
+.skills-container{
+max-width:1200px;
+margin:auto;
+}
+
+.skills-container h2{
+font-size:48px;
+margin-bottom:60px;
+text-align:center;
+background:linear-gradient(90deg,#00f5c4,#3b82f6);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.skill-card{
+background:rgba(6,35,51,0.6);
+backdrop-filter:blur(10px);
+border:1px solid rgba(0,245,196,0.2);
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.skill-card:hover{
+border-color:#00f5c4;
+box-shadow:0 0 20px rgba(0,245,196,0.2);
+}
+
+.skill-card h3{
+color:#00f5c4;
+margin-bottom:20px;
+font-size:20px;
+}
+
+.skill-card ul{
+list-style:none;
+padding:0;
+}
+
+.skill-card li{
+color:#cbd5e1;
+padding:8px 0;
+padding-left:20px;
+position:relative;
+}
+
+.skill-card li::before{
+content:"▸";
+position:absolute;
+left:0;
+color:#00f5c4;
+}
+
+@media(max-width:768px){
+
+.skills{
+padding:60px 40px;
+}
+
+.skills-container h2{
+font-size:32px;
+}
+
+.skills-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.skills{
+padding:70px 30px;
+}
+
+.skills-container h2{
+font-size:30px;
+margin-bottom:50px;
+}
+
+.skill-card{
+padding:25px;
+}
+
+.skill-card h3{
+font-size:18px;
+margin-bottom:15px;
+}
+
+.skill-card li{
+padding:6px 0;
+padding-left:18px;
+font-size:14px;
+}
+
+}
+
+@media(max-width:480px){
+
+.skills{
+padding:50px 20px;
+}
+
+.skills-container h2{
+font-size:26px;
+margin-bottom:40px;
+}
+
+.skill-card{
+padding:20px;
+}
+
+.skill-card h3{
+font-size:16px;
+margin-bottom:12px;
+}
+
+.skill-card li{
+padding:5px 0;
+padding-left:16px;
+font-size:13px;
+}
+
+}
+
+@media(max-width:360px){
+
+.skills{
+padding:40px 15px;
+}
+
+.skills-container h2{
+font-size:22px;
+margin-bottom:30px;
+}
+
+.skill-card{
+padding:15px;
+}
+
+.skill-card h3{
+font-size:15px;
+}
+
+.skill-card li{
+font-size:12px;
+padding-left:14px;
+}
+
+}
