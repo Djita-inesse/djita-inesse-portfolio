@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import "../styles/hero.css"
+import profil from "../assets/profil.jpg";
 
 export default function Hero(){
 
@@ -61,7 +62,7 @@ className="hero-image"
 
 <div className="circle">
 
-<img src="src/assets/profil.jpg" alt="Djita Inesse "/>
+<img src={profil} alt="Djita Inesse "/>
 
 </div>
 
