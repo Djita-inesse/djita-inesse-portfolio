@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import "../styles/about.css"
+import memoji from "/memoji.gif"
 
 export default function About(){
 
@@ -26,7 +27,7 @@ viewport={{once:true}}
 
 <h2>À Propos</h2>
 
-<img src="https://em-content.zobj.net/content/2020/06/22/ios-14-memoji-emojipedia.gif" alt="Memoji de Djita Inesse" className="memoji-gif" />
+<img src={memoji} alt="Memoji de Djita Inesse" className="memoji-gif" />
 
 <p>Je suis Djita Inesse, développeuse WordPress et graphiste passionnée par la création de sites web
      modernes et d’expériences numériques uniques. Je conçois des maquettes créatives et développe des 
