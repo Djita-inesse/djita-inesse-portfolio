@@ -66,6 +66,14 @@ position:relative;
 z-index:2;
 }
 
+.hero-text{
+order:1;
+}
+
+.hero-image{
+order:2;
+}
+
 .badge{
 background:rgba(0,255,200,0.15);
 color:#00f5c4;
@@ -183,6 +191,14 @@ padding:100px 40px;
 grid-template-columns:1fr;
 text-align:center;
 gap:60px;
+}
+
+.hero-text{
+order:2;
+}
+
+.hero-image{
+order:1;
 }
 
 .hero-text h1{

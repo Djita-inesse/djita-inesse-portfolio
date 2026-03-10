@@ -13,33 +13,68 @@ message:""
 })
 
 const [isLoading, setIsLoading] = useState(false)
+const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', null
 
 const handleChange = (e) => {
 const {name,value} = e.target
 setFormData(prev=>({...prev,[name]:value}))
+// Reset status when user starts typing
+if (submitStatus) setSubmitStatus(null)
+}
+
+const validateForm = () => {
+if (!formData.name.trim()) return "Le nom est requis"
+if (!formData.email.trim()) return "L'email est requis"
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) return "Format d'email invalide"
+if (!formData.message.trim()) return "Le message est requis"
+if (formData.message.trim().length < 10) return "Le message doit contenir au moins 10 caractères"
+return null
 }
 
 const handleSubmit = async (e) => {
 e.preventDefault()
+
+// Validation
+const validationError = validateForm()
+if (validationError) {
+setSubmitStatus('error')
+alert(validationError)
+return
+}
+
 setIsLoading(true)
+setSubmitStatus(null)
 
 try {
 await emailjs.sendForm(
-'service_your_service_id', // Remplacer par votre service ID EmailJS (obtenu sur https://www.emailjs.com/)
-'template_your_template_id', // Remplacer par votre template ID EmailJS
+'sservice_vxau1pa',
+'template_rgkxzcb',
 e.target,
-'user_your_user_id' // Remplacer par votre user ID EmailJS
+'zg8htCN6dk5t8FN28'
 )
 
-alert('Message envoyé avec succès ! Merci de m\'avoir contacté.')
+setSubmitStatus('success')
 setFormData({name:"",email:"",message:""})
+alert('Message envoyé avec succès ! Merci de m\'avoir contacté. Je vous répondrai dans les plus brefs délais.')
+
 } catch (error) {
 console.error('Erreur lors de l\'envoi:', error)
-// Solution temporaire : ouvrir le client email
+setSubmitStatus('error')
+
+// Gestion des erreurs spécifiques
+if (error.text && error.text.includes('rate limit')) {
+alert('Trop de messages envoyés récemment. Veuillez réessayer dans quelques minutes.')
+} else if (error.text && error.text.includes('template')) {
+alert('Erreur de configuration du template. Veuillez contacter le développeur.')
+} else if (!navigator.onLine) {
+alert('Pas de connexion internet. Vérifiez votre connexion et réessayez.')
+} else {
+// Fallback vers mailto
 const subject = encodeURIComponent(`Message de ${formData.name} - Portfolio`)
 const body = encodeURIComponent(`Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
 window.open(`mailto:inesdjita@gmail.com?subject=${subject}&body=${body}`)
-alert('Ouverture de votre client email avec le message pré-rempli.')
+alert('Le service d\'email est temporairement indisponible. Votre client email s\'est ouvert avec le message pré-rempli.')
+}
 } finally {
 setIsLoading(false)
 }
@@ -182,9 +217,36 @@ required
 ></textarea>
 </div>
 
-<button type="submit" className="submit-btn" disabled={isLoading}>
-{isLoading ? 'Envoi en cours...' : 'Envoyer le message'}
+<button type="submit" className={`submit-btn ${submitStatus === 'success' ? 'success' : submitStatus === 'error' ? 'error' : ''}`} disabled={isLoading}>
+{isLoading ? (
+<>
+<span className="spinner"></span>
+Envoi en cours...
+</>
+) : submitStatus === 'success' ? (
+<>
+✓ Message envoyé !
+</>
+) : submitStatus === 'error' ? (
+<>
+✗ Erreur d'envoi
+</>
+) : (
+'Envoyer le message'
+)}
 </button>
+
+{submitStatus === 'success' && (
+<div className="status-message success">
+✓ Votre message a été envoyé avec succès ! Je vous répondrai bientôt.
+</div>
+)}
+
+{submitStatus === 'error' && (
+<div className="status-message error">
+✗ Une erreur s'est produite. Si le problème persiste, contactez-moi directement.
+</div>
+)}
 
 </motion.form>
 

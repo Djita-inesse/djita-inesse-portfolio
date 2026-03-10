@@ -11,6 +11,21 @@ return(
 <div className="hero-container">
 
 <motion.div
+initial={{opacity:0,x:80}}
+animate={{opacity:1,x:0}}
+transition={{duration:1}}
+className="hero-image"
+>
+
+<div className="circle">
+
+<img src={profil} alt="Djita Inesse "/>
+
+</div>
+
+</motion.div>
+
+<motion.div
 initial={{opacity:0,x:-80}}
 animate={{opacity:1,x:0}}
 transition={{duration:1}}
@@ -48,21 +63,6 @@ Voir mon travail
 <button className="secondary" onClick={() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'})}>
 Me contacter
 </button>
-
-</div>
-
-</motion.div>
-
-<motion.div
-initial={{opacity:0,x:80}}
-animate={{opacity:1,x:0}}
-transition={{duration:1}}
-className="hero-image"
->
-
-<div className="circle">
-
-<img src={profil} alt="Djita Inesse "/>
 
 </div>
 

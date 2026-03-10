@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import "../styles/about.css"
-import memoji from "/memoji.gif"
+import memoji from "../assets/memoji.gif";
 
 export default function About(){
 

@@ -245,14 +245,13 @@ initial={{opacity:0,scale:0.8}}
 whileInView={{opacity:1,scale:1}}
 viewport={{once:true}}
 animate={{
-y: [0, -10, 0],
-rotate: [0, 1, -1, 0]
+x: [0, -30, 0]
 }}
 transition={{
-duration: 4,
+duration: 12,
 repeat: Infinity,
-delay: i * 0.2,
-ease: "easeInOut"
+delay: i * 0.4,
+ease: "linear"
 }}
 whileHover={{scale:1.05}}
 onClick={() => openModal(flyers[i])}
@@ -270,14 +269,13 @@ initial={{opacity:0,scale:0.8}}
 whileInView={{opacity:1,scale:1}}
 viewport={{once:true}}
 animate={{
-y: [0, -10, 0],
-rotate: [0, -1, 1, 0]
+x: [0, 30, 0]
 }}
 transition={{
-duration: 4,
+duration: 12,
 repeat: Infinity,
-delay: (i + 5) * 0.2,
-ease: "easeInOut"
+delay: (i + 5) * 0.4,
+ease: "linear"
 }}
 whileHover={{scale:1.05}}
 onClick={() => openModal(flyers[i+5])}
