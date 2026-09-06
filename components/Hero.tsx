@@ -5,7 +5,7 @@ export default function Hero() {
     <header id="hero" className="page hero">
       <div>
         <div className="hero-trait" />
-        <h1>{identite.nom}</h1>
+        <h1>{identite.nomComplet}</h1>
         <p className="hero-role">{identite.role}</p>
 
         <p className="hero-accroche">{identite.accroche}</p>
@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="hero-portrait">
         {identite.portrait ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={identite.portrait} alt={`Portrait de ${identite.nom}`} />
+          <img src={identite.portrait} alt={`Portrait de ${identite.nomComplet}`} />
         ) : (
           <span
             style={{

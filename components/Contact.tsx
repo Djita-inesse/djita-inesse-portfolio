@@ -10,11 +10,14 @@ export default function Contact() {
         <a href={`mailto:${identite.email}`}>{identite.email}</a>
       </p>
 
-      {/* La maquette laisse le numéro en attente ; on garde la ligne visible
-          pour qu'elle ne soit pas oubliée, mais signalée comme telle. */}
-      <p className="contact-ligne contact-attente">
-        {identite.telephone ?? "[numéro à confirmer]"}
-      </p>
+      {identite.telephone ? (
+        <p className="contact-ligne">
+          <a href={`tel:${identite.telephone.replace(/\s/g, "")}`}>{identite.telephone}</a>
+        </p>
+      ) : (
+        // Signalé tant que le numéro n'est pas confirmé, pour ne pas l'oublier.
+        <p className="contact-ligne contact-attente">[numéro à confirmer]</p>
+      )}
 
       <a className="contact-bouton" href={`mailto:${identite.email}`}>
         {contact.bouton}

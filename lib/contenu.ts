@@ -38,7 +38,10 @@ export type EntreeParcours = {
 // —————————————————————————————————————————————— Identité
 
 export const identite = {
+  /** Forme courte : marque de navigation et pied de page. */
   nom: "Inesse Djita",
+  /** Nom complet, tel qu'il figure sur le CV : titre du hero et titre de page. */
+  nomComplet: "Inesse Carelle Djita Fokong",
   role: "Développeuse full stack",
   accroche:
     "Je construis des interfaces React/Next.js sur des API back-end, et j'accompagne " +
@@ -47,15 +50,13 @@ export const identite = {
   recherche: "Recherche un stage full stack — Master 1, Ynov Campus Nantes.",
   email: "inesdjita@gmail.com",
 
-  /** MANQUANT — la maquette porte littéralement « [numéro à confirmer] ». */
-  telephone: null as string | null,
+  telephone: "+33 7 80 89 39 89" as string | null,
 
   portrait: "/portrait.webp" as string | null,
 
   github: "https://github.com/Djita-inesse",
 
-  /** MANQUANT — le site actuel avait href="#". */
-  linkedin: null as string | null,
+  linkedin: "https://www.linkedin.com/in/inesse-carelle-djita" as string | null,
 
   cv: "/cv-inesse-djita.pdf",
 }
