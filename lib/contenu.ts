@@ -9,8 +9,15 @@
 
 export type Lien = { libelle: string; href: string }
 
+/**
+ * Zone cliquable d'un visuel : `libelle` est le domaine affiché au survol.
+ * Plusieurs zones découpent l'image en colonnes égales — utile pour les
+ * captures qui montrent plusieurs sites côte à côte.
+ */
+export type LienVisuel = { href: string; libelle: string }
+
 /** Visuel d'un projet. `src` à null => encadré légendé, comme dans la maquette. */
-export type Visuel = { src: string | null; legende: string }
+export type Visuel = { src: string | null; legende: string; liens?: LienVisuel[] }
 
 /** Une puce de projet : soit une ligne simple, soit un intitulé + son détail. */
 export type Puce = { intitule?: string; texte: string }
@@ -25,7 +32,7 @@ export type Projet = {
   visuel: Visuel
 }
 
-export type Depot = { nom: string; description: string; enAttente?: boolean }
+export type Depot = { nom: string; description: string }
 
 export type GroupeStack = { titre: string; entrees: { code: string; nom: string }[] }
 
@@ -44,9 +51,10 @@ export const identite = {
   nomComplet: "Inesse Carelle Djita Fokong",
   role: "Développeuse full stack",
   accroche:
-    "Je construis des interfaces React/Next.js sur des API back-end, et j'accompagne " +
-    "les produits jusqu'à leur mise en production — y compris la publication sur " +
-    "Google Play et l'App Store. Quatre ans de pratique, en agence puis à mon compte.",
+    "Profil hybride technique et produit : je conçois des interfaces React/Next.js et " +
+    "des sites WordPress sur mesure, et je pilote des applications mobiles jusqu'à leur " +
+    "publication sur Google Play et l'App Store. Quatre ans de pratique, en agence puis " +
+    "en indépendante.",
   recherche: "Recherche un stage full stack — Master 1, Ynov Campus Nantes.",
   email: "inesdjita@gmail.com",
 
@@ -84,7 +92,11 @@ export const projets: Projet[] = [
       { texte: "Plus de 50 utilisateurs en production." },
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind", "Django REST", "WooCommerce", "PHP"],
-    visuel: { src: "/projet-2ln.webp", legende: "Les familles de diagnostic et leurs formules" },
+    visuel: {
+      src: "/projet-2ln.webp",
+      legende: "Les familles de diagnostic et leurs formules",
+      liens: [{ href: "https://2lnlearninginstitute.com", libelle: "2lnlearninginstitute.com" }],
+    },
   },
   {
     numero: "02",
@@ -97,7 +109,11 @@ export const projets: Projet[] = [
       { texte: "Itérations de conversion pilotées par les retours réels des utilisateurs." },
     ],
     technologies: ["Développement", "e-commerce", "acquisition"],
-    visuel: { src: "/projet-gbuy.webp", legende: "Page d'accueil et catalogue produits" },
+    visuel: {
+      src: "/projet-gbuy.webp",
+      legende: "Page d'accueil et catalogue produits",
+      liens: [{ href: "https://gbuy-cm.com", libelle: "gbuy-cm.com" }],
+    },
   },
   {
     numero: "03",
@@ -121,12 +137,12 @@ export const projets: Projet[] = [
       {
         intitule: "MadBeauty",
         texte:
-          "Production automatisée des visuels stores en Python/Pillow, dont les captures " +
-          "iPhone au format 6,9″ aux spécifications App Store Connect.",
+          "Production automatisée des visuels stores, dont les captures iPhone au " +
+          "format 6,9″ aux spécifications App Store Connect.",
       },
     ],
-    technologies: ["Google Play", "App Store", "Product ownership", "Python"],
-    visuel: { src: null, legende: "Fiches store — Google Play et App Store" },
+    technologies: ["Google Play", "App Store", "Product ownership", "Recette & tests"],
+    visuel: { src: "/projet-stores.webp", legende: "Fiches store — Google Play et App Store" },
   },
   {
     numero: "04",
@@ -155,7 +171,17 @@ export const projets: Projet[] = [
       },
     ],
     technologies: ["WordPress", "Elementor", "Shopify", "PHP", "JavaScript", "SEO technique"],
-    visuel: { src: "/projet-sites-clients.webp", legende: "Sinequanone Engineering, ADEPA Santé et Dayness Cosmetics" },
+    visuel: {
+      src: "/projet-sites-clients.webp",
+      legende: "Sinequanone Engineering, ADEPA Santé et Dayness Cosmetics",
+      // La capture montre les trois sites côte à côte : une zone cliquable par tiers,
+      // dans l'ordre de gauche à droite.
+      liens: [
+        { href: "https://sinequanone-engineering.fr", libelle: "sinequanone-engineering.fr" },
+        { href: "https://adepasante.org", libelle: "adepasante.org" },
+        { href: "https://dayness-cosmetics.fr", libelle: "dayness-cosmetics.fr" },
+      ],
+    },
   },
 ]
 
@@ -170,8 +196,6 @@ export const code = {
     { nom: "portfolio", description: "Ce site — Next.js, TypeScript, rendu statique" },
     { nom: "gbuy-platform", description: "Plateforme d'achat groupé — front et back" },
     { nom: "2ln-diagnostics", description: "Formulaires multi-étapes et restitution de résultats" },
-    // MANQUANT — la maquette porte « [projet API] ».
-    { nom: "[projet API]", description: "API REST, base de données, authentification, tests Vitest", enAttente: true },
   ] satisfies Depot[],
 }
 
@@ -200,12 +224,15 @@ export const stack: GroupeStack[] = [
       { code: "AP", nom: "API REST" },
       { code: "PH", nom: "PHP" },
       { code: "WP", nom: "WordPress" },
+      { code: "WC", nom: "WooCommerce" },
       { code: "SH", nom: "Shopify" },
     ],
   },
   {
-    titre: "Qualité & outils",
+    titre: "Design, qualité & outils",
     entrees: [
+      { code: "FG", nom: "Figma" },
+      { code: "IL", nom: "Adobe Illustrator" },
       { code: "GH", nom: "Git & GitHub" },
       { code: "VI", nom: "Vitest" },
       { code: "PW", nom: "Playwright" },
@@ -226,12 +253,12 @@ export const experience: EntreeParcours[] = [
     dates: "depuis mars 2025",
   },
   {
-    intitule: "Développeuse web junior — stage professionnel (13 mois)",
+    intitule: "Développeuse web junior",
     structure: "Franchise IT — Douala, Cameroun",
     dates: "janv. 2024 – févr. 2025",
   },
   {
-    intitule: "Développeuse web",
+    intitule: "Développeuse web — stage académique",
     structure: "JSC-Market — Douala, Cameroun",
     dates: "juin 2022 – févr. 2023",
   },
@@ -245,7 +272,7 @@ export const formation: EntreeParcours[] = [
   },
   {
     intitule: "Master 1 — Systèmes d'information & Génie logiciel",
-    structure: "Douala",
+    structure: "Institut Universitaire de la Côte — Douala",
     dates: "2025 – juin 2026",
   },
   {
@@ -271,6 +298,58 @@ export const aussi: string[] = [
   "PEMBO — refonte du site e-commerce d'un distributeur de fournitures (Douala).",
   "TALENTIIS — cahier des charges d'une plateforme LMS : cinq rôles, parcours de paiement, planning.",
   "Maquettage et prototypage sous Figma — conception des interfaces en amont du développement, sur mes projets clients.",
+]
+
+// —————————————————————————————————————————————— Graphic designer
+
+/**
+ * Une maquette Figma présentée en vignette.
+ *
+ * `apercu` est la planche exportée en WebP, `lien` la destination du bouton
+ * « Consulter » : le fichier Figma, qui doit rester partagé en « Toute personne
+ * disposant du lien » pour être consultable par un recruteur.
+ */
+export type Maquette = {
+  nom: string
+  description: string
+  apercu: string
+  lien: string
+}
+
+export const design = {
+  chapeau:
+    "Maquettes et prototypes interactifs conçus sous Figma, en amont du " +
+    "développement — architecture des écrans, système de composants et parcours " +
+    "complets.",
+  bouton: "Consulter",
+}
+
+export const maquettes: Maquette[] = [
+  {
+    nom: "GECAF",
+    description:
+      "Application mobile de mise en relation professionnelle : connexion, fil " +
+      "d'actualités, forum, messagerie, espace entreprise, appels d'offres et " +
+      "paiement de l'adhésion.",
+    apercu: "/maquette-gecaf.webp",
+    lien: "https://www.figma.com/design/JzePxN8ECkdPf52zxhpqTp/GECAF_maquette",
+  },
+  {
+    nom: "SmartBuild",
+    description:
+      "Plateforme BTP à trois rôles — fournisseur, acheteur et transporteur — " +
+      "avec ses parcours d'inscription, son suivi de commandes et sa messagerie.",
+    apercu: "/maquette-smartbuild.webp",
+    lien: "https://www.figma.com/design/jC6echsHspdD0bszyUnbuA/smartbuild",
+  },
+  {
+    nom: "Diveez",
+    description:
+      "Back-office de gestion : tableau de bord, groupes, demandes, fiches " +
+      "clients, paiements et paramètres.",
+    apercu: "/maquette-diveez.webp",
+    lien: "https://www.figma.com/design/8pous9ZnUbd4cXd5sujyCW/diveez",
+  },
 ]
 
 // —————————————————————————————————————————————— Contact

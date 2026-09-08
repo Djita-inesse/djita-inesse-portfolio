@@ -18,9 +18,7 @@ export default function Code() {
       <div className="depots">
         {code.depots.map((depot) => (
           <div key={depot.nom} className="depot">
-            <span className="depot-nom" data-attente={depot.enAttente ?? false}>
-              {depot.nom}
-            </span>
+            <span className="depot-nom">{depot.nom}</span>
             <span className="depot-description">{depot.description}</span>
           </div>
         ))}

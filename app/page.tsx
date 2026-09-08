@@ -5,6 +5,7 @@ import Code from "@/components/Code"
 import Stack from "@/components/Stack"
 import Parcours from "@/components/Parcours"
 import Aussi from "@/components/Aussi"
+import Design from "@/components/Design"
 import Contact from "@/components/Contact"
 import Pied from "@/components/Pied"
 
@@ -20,6 +21,7 @@ export default function Accueil() {
           <Stack />
           <Parcours />
           <Aussi />
+          <Design />
           <Contact />
         </div>
       </main>

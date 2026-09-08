@@ -89,10 +89,10 @@ Image : *Page d'accueil et tunnel de commande*
 - **LuvNote** — Mise en conformité d'une application de rencontre avec les politiques
   Google Play : classification du contenu, cohérence de marque, réécriture de la fiche
   store. Publication débloquée.
-- **MadBeauty** — Production automatisée des visuels stores en Python/Pillow, dont les
-  captures iPhone au format 6,9″ aux spécifications App Store Connect.
+- **MadBeauty** — Production automatisée des visuels stores, dont les captures
+  iPhone au format 6,9″ aux spécifications App Store Connect.
 
-`Google Play · App Store · Product ownership · Python`
+`Google Play · App Store · Product ownership · Recette & tests`
 Image : *Fiches store — Google Play et App Store*
 
 **04 — Sites clients livrés** — 2025–2026
@@ -195,11 +195,7 @@ pour illustrer un projet décrit comme « refonte complète ».
 
 ### En attente
 
-1. **Visuel 03 — fiches store** (Sendo, LuvNote, MadBeauty). Introuvable sans les
-   identifiants des applications sur Google Play / App Store.
-2. **Numéro de téléphone** — la maquette porte `[numéro à confirmer]`.
-3. **URL LinkedIn** — le lien reste masqué tant qu'elle n'est pas fournie.
-4. **Noms des dépôts GitHub.** Le compte `github.com/Djita-inesse` existe et
+1. **Noms des dépôts GitHub.** Le compte `github.com/Djita-inesse` existe et
    compte 17 dépôts publics, mais **aucun des quatre dépôts nommés dans la
    maquette n'y figure** :
 
