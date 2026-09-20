@@ -355,7 +355,7 @@ export const maquettes: Maquette[] = [
 // —————————————————————————————————————————————— Contact
 
 export const contact = {
-  titre: "Disponible pour un stage full stack à Nantes ou en Île-de-France.",
+  titre: "Disponible pour un stage full stack à Nantes.",
   bouton: "Me contacter",
 }
 

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Inesse Carelle Djita Fokong — Développeuse full stack",
   description:
     "Interfaces React/Next.js sur API back-end, jusqu'à la mise en production sur " +
-    "Google Play et l'App Store. Recherche un stage full stack à Nantes ou en Île-de-France.",
+    "Google Play et l'App Store. Recherche un stage full stack à Nantes.",
 }
 
 /**

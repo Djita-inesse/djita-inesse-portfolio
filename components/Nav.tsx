@@ -60,11 +60,49 @@ export default function Nav() {
             className="nav-theme"
             onClick={basculer}
             aria-label={`Passer au thème ${theme === "sombre" ? "clair" : "sombre"}`}
+            title={`Passer au thème ${theme === "sombre" ? "clair" : "sombre"}`}
           >
-            Thème
+            {theme === "sombre" ? <IconeSoleil /> : <IconeLune />}
           </button>
         </div>
       </div>
     </nav>
+  )
+}
+
+// Le thème sombre affiche le soleil (la bascule mène au clair), et inversement.
+function IconeSoleil() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M12 2.4v2.4M12 19.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" />
+    </svg>
+  )
+}
+
+function IconeLune() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20.6 14.2A8.6 8.6 0 0 1 9.8 3.4 8.6 8.6 0 1 0 20.6 14.2z" />
+    </svg>
   )
 }

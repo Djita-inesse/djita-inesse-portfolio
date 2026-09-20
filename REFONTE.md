@@ -168,7 +168,7 @@ Liste séparée par des filets :
 - Maquettage et prototypage sous Figma — conception des interfaces en amont du développement, sur mes projets clients.
 
 ### CONTACT
-Titre : « Disponible pour un stage full stack à Nantes ou en Île-de-France. »
+Titre : « Disponible pour un stage full stack à Nantes. »
 `inesdjita@gmail.com`
 `[numéro à confirmer]`
 Bouton plein accent : `Me contacter`
@@ -217,7 +217,7 @@ pour illustrer un projet décrit comme « refonte complète ».
 La refonte est un repositionnement, pas un habillage :
 
 - Métier : « Développeuse WordPress & Graphiste » → « Développeuse full stack »
-- Cible : clients à Douala → recruteurs de stage à Nantes / Île-de-France
+- Cible : clients à Douala → recruteurs de stage à Nantes
 - Ancienneté : « 3+ années d'expérience » → « Quatre ans de pratique »
 - Les projets actuels (Belgium Wine Store, SmartBuild, DIVIZ, GECAF, FichTech,
   Code Facile, Gestion Réunion) ne figurent plus, sauf SFT rétrogradé dans « AUSSI »

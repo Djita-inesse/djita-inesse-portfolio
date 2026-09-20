@@ -179,12 +179,14 @@ a:hover {
 }
 
 .nav-theme {
-  font-family: var(--sans);
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   color: var(--accent);
   background: none;
   border: 1px solid var(--accent);
-  padding: 6px 14px;
   cursor: pointer;
 }
 
