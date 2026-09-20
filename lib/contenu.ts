@@ -221,7 +221,6 @@ export const stack: GroupeStack[] = [
       { code: "ND", nom: "Node.js" },
       { code: "SQ", nom: "SQL" },
       { code: "FB", nom: "Firebase (Firestore, Auth)" },
-      { code: "AP", nom: "API REST" },
       { code: "PH", nom: "PHP" },
       { code: "WP", nom: "WordPress" },
       { code: "WC", nom: "WooCommerce" },
