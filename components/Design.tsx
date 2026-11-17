@@ -1,39 +1,81 @@
-import Section from "./Section"
-import { design, maquettes } from "@/lib/contenu"
+import Image from "next/image";
 
-/**
- * Grille de vignettes des maquettes Figma. Chaque carte porte son aperçu, le
- * nom du projet, ce qu'il couvre et un bouton « Consulter ».
- */
-export default function Design() {
+import Reveal from "@/components/Reveal";
+import { designIntro, studies } from "@/content/data";
+import type { Study } from "@/content/data";
+
+function Planche({ study, large = false, delay = 0 }: { study: Study; large?: boolean; delay?: number }) {
   return (
-    <Section id="design" libelle="Graphic designer">
-      <p className="design-chapeau">{design.chapeau}</p>
-
-      <ul className="maquettes">
-        {maquettes.map((maquette) => (
-          <li key={maquette.nom} className="maquette">
-            <div className="maquette-apercu">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={maquette.apercu} alt={`Planche de maquettes ${maquette.nom}`} />
-            </div>
-
-            <h3 className="maquette-nom">{maquette.nom}</h3>
-            <p className="maquette-description">{maquette.description}</p>
-
+    <Reveal as="article" className={large ? "planche planche--large" : "planche"} delay={delay}>
+      <div
+        className={study.imageDark ? "planche__capture planche__capture--sombre" : "planche__capture"}
+        style={study.imageRatio ? { aspectRatio: study.imageRatio, height: "auto" } : undefined}
+      >
+        <Image
+          src={study.image}
+          alt={study.imageAlt}
+          fill
+          sizes={large ? "(max-width: 1440px) 100vw, 1280px" : "(max-width: 900px) 100vw, 640px"}
+        />
+      </div>
+      <div className="planche__corps">
+        <div className="planche__tete">
+          <div>
+            <p className="projet__kicker">{study.kicker}</p>
+            <h3 className="planche__titre">{study.title}</h3>
+          </div>
+          {large ? (
             <a
-              href={maquette.lien}
+              className="fleche"
+              href={study.href}
               target="_blank"
               rel="noreferrer"
-              className="maquette-bouton"
-              aria-label={`Consulter les maquettes ${maquette.nom}`}
+              aria-label={`Ouvrir la maquette ${study.title} dans Figma (nouvel onglet)`}
             >
-              {design.bouton}
-              <span aria-hidden="true"> ↗</span>
+              →
             </a>
-          </li>
-        ))}
-      </ul>
-    </Section>
-  )
+          ) : null}
+        </div>
+        <p className="planche__texte">{study.text}</p>
+        <ul className="puces">
+          {study.stack.map((item) => (
+            <li key={item} className="puce puce--petite puce--beige">
+              {item}
+            </li>
+          ))}
+        </ul>
+        <a className="planche__lien" href={study.href} target="_blank" rel="noreferrer">
+          {study.hrefLabel}
+        </a>
+      </div>
+    </Reveal>
+  );
+}
+
+export default function Design() {
+  const [principale, ...autres] = studies;
+
+  return (
+    <section id="design" className="section">
+      <div className="enveloppe section__pile section__pile--32">
+        <Reveal as="p" className="surtitre">
+          {designIntro.kicker}
+        </Reveal>
+        <Reveal as="h2" className="titre-72">
+          {designIntro.title}
+        </Reveal>
+        <Reveal as="p" className="design__intro" delay={60}>
+          {designIntro.text}
+        </Reveal>
+
+        <Planche study={principale} large />
+
+        <div className="planches">
+          {autres.map((study, index) => (
+            <Planche key={study.title} study={study} delay={index * 100} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
